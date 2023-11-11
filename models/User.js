@@ -5,12 +5,20 @@ class User extends Model { }
 
 User.init(
   {
-    first_name: {
-      type: DataTypes.STRING
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    last_name: {
-      type: DataTypes.STRING
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
+    password_user: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
   sequelize,
   timestamps: true,
