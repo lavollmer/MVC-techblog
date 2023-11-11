@@ -1,7 +1,7 @@
 //requiring in express
 const express = require("express");
 const app = express();
-const routes = require("./routes");
+const routes = require("./controllers");
 const path = require("path")
 //import sequelize
 const sequelize = require('./config/connection');
@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 })
 
 //after we have defined this route, any other routes that hit this file will be divided up
-app.use("*", routes)
+app.use(routes)
 
 //safeguard: if we are in a production environment it should always equal false
 const okToSync = (process.env.NODE_ENV === 'product') ? false : true;
