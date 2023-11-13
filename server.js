@@ -1,19 +1,20 @@
 //requiring in express
-const express = require("express");
-const router = require("express").Router();
-
-// Sets up the Express App
+const express = require('express');
+const router = require('express').Router()
 const app = express();
 const path = require('path');
 
 //requiring in routes (controllers)
-const routes = require("./controllers/index");
+const routes = require("./controllers");
 
 //setting up handlebars
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+// Import express-session
+const session = require('express-session');
 
 //import sequelize with connection db
 const sequelize = require('./config/connection');
@@ -26,10 +27,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//Home page route
-// router.get("/", async (req, res) => {
-//   res.render('all');
-// })
+// Set up sessions
+const sess = {
+  secret: 'Super secret secret',
+  resave: false,
+  saveUninitialized: false,
+};
+
+app.use(session(sess));
 
 // any other routes that hit this file will be divided up
 app.use(routes)
@@ -38,6 +43,8 @@ app.use(routes)
 app.get("/", async (req, res) => {
   res.render('homepage', { layout: 'main' })
 });
+
+
 
 // Connect to the database before starting the Express.js server
 //force:okToSync telling sequelize to rebuild the tables
