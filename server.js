@@ -27,9 +27,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Home page route
-router.get("/", async (req, res) => {
-  res.render('all');
-})
+// router.get("/", async (req, res) => {
+//   res.render('all');
+// })
 
 // any other routes that hit this file will be divided up
 app.use(routes)
