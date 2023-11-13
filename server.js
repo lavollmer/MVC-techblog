@@ -1,12 +1,12 @@
 //requiring in express
 const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 
 // Sets up the Express App
 const app = express();
 const path = require('path');
 
-//requiriing in routes (controllers)
+//requiring in routes (controllers)
 const routes = require("./controllers/index");
 
 //setting up handlebars
@@ -22,7 +22,7 @@ const sequelize = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 
 //public folder is available and middleware
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -31,8 +31,13 @@ router.get("/", async (req, res) => {
   res.render('all');
 })
 
-//after we have defined this route, any other routes that hit this file will be divided up
+// any other routes that hit this file will be divided up
 app.use(routes)
+
+//rendering out homepage
+app.get("/", async (req, res) => {
+  res.render('homepage', { layout: 'main' })
+});
 
 // Connect to the database before starting the Express.js server
 //force:okToSync telling sequelize to rebuild the tables

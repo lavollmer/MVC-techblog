@@ -1,13 +1,11 @@
 const express = require('express');
 const router = require('express').Router();
-const { User, Comment, Article } = require('../../User');
-
-//Command shift L for Mac users
+const { User, Comment, Article } = require('../../models');
 
 //get all records
 router.get("/", async (req, res) => {
   try {
-    const payload = await User.findAll();
+    const payload = await Comment.findAll();
     res.status(200).json({ status: "success", payload })
   } catch (err) {
     res.status(500).json({ status: "error", paylod: err.message })
@@ -18,7 +16,7 @@ router.get("/", async (req, res) => {
 //get one record by PK
 router.get("/:id", async (req, res) => {
   try {
-    const payload = await User.findByPk(req.params.id);
+    const payload = await Comment.findByPk(req.params.id);
     res.status(200).json({ status: "success", payload })
   } catch (err) {
     res.status(500).json({ status: "error", paylod: err.message })
@@ -29,7 +27,7 @@ router.get("/:id", async (req, res) => {
 //Create a new record
 router.get("/", async (req, res) => {
   try {
-    const payload = await User.create(req.body);
+    const payload = await Comment.create(req.body);
     res.status(200).json({ status: "success", payload })
   } catch (err) {
     res.status(500).json({ status: "error", paylod: err.message })
@@ -40,7 +38,7 @@ router.get("/", async (req, res) => {
 //Update a record
 router.put("/:id", async (req, res) => {
   try {
-    const payload = await User.update(
+    const payload = await Comment.update(
       req.body,
       {
         where: {
@@ -57,7 +55,7 @@ router.put("/:id", async (req, res) => {
 //delete method
 router.delete("/:id", async (req, res) => {
   try {
-    const payload = await User.destroy({
+    const payload = await Comment.destroy({
       where: {
         id: request.params.id
       }

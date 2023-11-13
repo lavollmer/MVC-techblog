@@ -1,16 +1,11 @@
-const router = require("express").Router();
+const router = require('express').Router();
+const apiRoutes = require('./api');
 
-//import all api route files
-const userApiRoutes = require('./api/user.api.routes')
+router.use('/api', apiRoutes);
 
-
-//import all html route files here
-// userHTMLRoutes = require("./html/user.html.routes");
-
-//add api routes to the router
-router.use("/api/user", userApiRoutes);
-
-//add html routes to the router
-// router.use("/user", userHTMLRoutes)
+router.use((req, res) => {
+  res.send("<h1>Wrong Route!</h1>")
+});
 
 module.exports = router;
+
