@@ -5,10 +5,11 @@
 ## Technical Requirements
 
 Technical requirements include:
-* Express.js
+* Express
 * bcrypt package
 * session package
 * sequelize
+* Node.js
 
 
 ## Usage
