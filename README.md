@@ -24,7 +24,7 @@ This project was done in conjunction with the U of MN Bootcamp 2023.
 
 User.js model code taken from 14-MVC Activity 21 User model.
 
-Signup logic and code inspired by Activity 9 in MVC-14.
+Signup, login and logout logic and code inspired by Activity 9 and Activity 16 in MVC-14.
 
 
 ## License
