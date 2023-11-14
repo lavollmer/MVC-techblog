@@ -21,18 +21,16 @@ router.post('/login', async (req, res) => {
 
     //if incorrect password then send back incorrect message
     if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password. Please try again' })
+      res.status(400).json({ message: 'Incorrect password. Please try again' });
+      return;
     }
 
     //session storage
     req.session.save(() => {
+      req.session.user_id = userLoginData.id;
       req.session.loggedIn = true;
-      console.log(
-        'File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
-        req.session.cookie
-      );
 
-      res.status(200).json({ username: userLoginData, message: "You are no logged in" })
+      res.status(200).json({ username: userLoginData, message: "You are no logged in" });
     })
   } catch (err) {
     res.status(400).json(err);
@@ -42,6 +40,7 @@ router.post('/login', async (req, res) => {
 //Logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
+    //get rid of session variables
     req.session.destory(() => {
       res.status(204).end();
     });
