@@ -29,5 +29,14 @@ User.js model code taken from 14-MVC Activity 21 User model.
 
 Signup, login and logout logic and code inspired by Activity 9, Activity 24 SOLVED folder and Activity 16 in MVC-14.
 
+Xpert Learning Assistant from U of MN bootcamp site provided code for schema.sql table:
+ALTER TABLE Article
+DROP FOREIGN KEY article_ibfk_1;
+
+ALTER TABLE Comment
+DROP FOREIGN KEY comment_ibfk_1;
+
+ALTER TABLE techblog_db MODIFY COLUMN comment VARCHAR(255) DEFAULT 'default_comment';
+
 ## License
 None
