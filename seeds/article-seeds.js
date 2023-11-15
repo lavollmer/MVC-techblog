@@ -15,6 +15,6 @@ const articleInformation = [
   }
 ]
 
-const seedArticles = () => Article.bulkCreate(articleInformation);
+const seedArticle = () => Article.bulkCreate(articleInformation);
 
-module.exports = seedArticles;
+module.exports = seedArticle;

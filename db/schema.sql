@@ -17,7 +17,8 @@ CREATE TABLE User (
 -- Create article Table--
 CREATE TABLE Article (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  article_user VARCHAR(500) NOT NULL,
+  title VARCHAR(500) NOT NULL,
+  content VARCHAR(500) NOT NULL,
   article_id INT,
   FOREIGN KEY (article_id) REFERENCES User(id)
 );
@@ -25,8 +26,14 @@ CREATE TABLE Article (
 -- Create comment Table--
 CREATE TABLE Comment (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  comment_user VARCHAR(500) NOT NULL,
+  comment VARCHAR(500) NOT NULL,
   comment_id INT,
     FOREIGN KEY (comment_id) REFERENCES User(id)
 );
 
+-- code taken from previous homework, which was from xpert learning assistant on U of MN Bootcamp site --
+-- ALTER TABLE Article
+-- DROP FOREIGN KEY producttag_ibfk_2;
+
+-- ALTER TABLE Article
+-- DROP FOREIGN KEY producttag_ibfk_1;
