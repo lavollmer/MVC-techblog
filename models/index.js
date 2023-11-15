@@ -4,23 +4,21 @@ const Comment = require('./comment')
 
 //user has many articles, but article has one user
 User.hasMany(Article, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  foreignKey: 'user.id',
 });
 
 Article.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user.id'
 });
 
 //user has many comments, but a made comment has one user
 User.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  foreignKey: 'user.id',
 });
 
 Comment.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user.id'
 });
 
 
-module.exports = User, Article, Comment;
+module.exports = { User, Article, Comment };
