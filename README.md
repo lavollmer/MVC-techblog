@@ -11,6 +11,7 @@ Technical requirements include:
 * session package
 * sequelize
 * Node.js
+* Express handlebars
 
 ## Usage
 

@@ -1,6 +1,6 @@
 //const express = require('express');
 const router = require('express').Router();
-const { User, Comment, Article } = require('../../models');
+const { User } = require('../../models');
 
 //Command shift L for Mac users
 
