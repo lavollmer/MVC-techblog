@@ -19,6 +19,8 @@ Github Link:https://github.com/lavollmer/MVC-techblog
 
 Screenshots:
 
+Heroku Deployment: https://mvc-techblog-lv-55feb36d5d2d.herokuapp.com/
+
 ## Credits
 
 This project was done in conjunction with the U of MN Bootcamp 2023.
@@ -26,7 +28,6 @@ This project was done in conjunction with the U of MN Bootcamp 2023.
 User.js model code taken from 14-MVC Activity 21 User model.
 
 Signup, login and logout logic and code inspired by Activity 9, Activity 24 SOLVED folder and Activity 16 in MVC-14.
-
 
 ## License
 None

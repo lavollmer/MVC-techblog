@@ -11,7 +11,11 @@ Article.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    article_user: {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    content: {
       type: DataTypes.STRING,
       allowNull: false
     }
