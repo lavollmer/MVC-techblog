@@ -1,13 +1,13 @@
--- DROP DATABASE
+-- DROP DATABASE --
 DROP DATABASE IF EXISTS techblog_db;
 
--- CREATE DATABASE
+-- CREATE DATABASE --
 CREATE DATABASE techblog_db;
 
--- Use DATABASE
+-- Use DATABASE --
 USE techblog_db;
 
--- Create user Table--
+-- Create user Table --
 CREATE TABLE User (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(100) NOT NULL,
@@ -37,3 +37,11 @@ CREATE TABLE Comment (
 
 -- ALTER TABLE Article
 -- DROP FOREIGN KEY producttag_ibfk_1;
+
+ALTER TABLE Article
+DROP FOREIGN KEY article_ibfk_1;
+
+ALTER TABLE Comment
+DROP FOREIGN KEY comment_ibfk_1;
+
+ALTER TABLE techblog_db MODIFY COLUMN comment VARCHAR(255) DEFAULT 'default_comment';
