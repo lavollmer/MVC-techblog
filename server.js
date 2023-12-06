@@ -50,8 +50,6 @@ app.get("/", async (req, res) => {
   res.render('homepage', { layout: 'main' })
 });
 
-
-
 // Connect to the database before starting the Express.js server
 //force:okToSync telling sequelize to rebuild the tables
 sequelize.sync({ force: false }).then(() => {
